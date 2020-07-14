@@ -1,12 +1,12 @@
 import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy,} from '@nebular/auth';
+import {NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy} from '@nebular/auth';
 import {NbRoleProvider, NbSecurityModule} from '@nebular/security';
 import {of as observableOf} from 'rxjs';
 import {environment} from '../../environments/environment';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
-import {AnalyticsService, LayoutService, PlayerService, SeoService, StateService,} from './utils';
+import {AnalyticsService, LayoutService, PlayerService, SeoService, StateService} from './utils';
 import {UserData} from './data/users';
 import {ElectricityData} from './data/electricity';
 import {SmartTableData} from './data/smart-table';
