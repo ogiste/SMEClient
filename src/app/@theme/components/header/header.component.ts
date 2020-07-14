@@ -1,10 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 
-import { UserData } from '../../../@core/data/users';
-import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import {UserData} from '../../../@core/data/users';
+import {LayoutService} from '../../../@core/utils';
+import {concatMap, map, takeUntil} from 'rxjs/operators';
+import {NbAuthService} from '@nebular/auth';
+import {of, Subject} from 'rxjs';
+import {SmeApiService} from '../../../sme-services/sme-api.service';
 
 @Component({
   selector: 'ngx-header',
@@ -16,7 +18,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
-
   themes = [
     {
       value: 'default',
@@ -43,9 +44,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
+              private authService: NbAuthService,
               private userService: UserData,
               private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+              private breakpointService: NbMediaBreakpointsService,
+              private smeApiService: SmeApiService,
+  ) {
+    this.authService.onTokenChange().pipe(concatMap(token => {
+      if (token.isValid()) {
+        // @ts-ignore
+        return this.smeApiService.getMyInfo(token.getValue()).pipe(
+          map((userInfo) => userInfo),
+        );
+      } else {
+        return of(undefined);
+      }
+    })).subscribe((myUserInfo) => {
+      this.user = myUserInfo;
+    });
   }
 
   ngOnInit() {

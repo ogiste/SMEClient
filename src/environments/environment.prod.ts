@@ -5,4 +5,6 @@
  */
 export const environment = {
   production: true,
+  api: 'https://sme-connect-283212.ew.r.appspot.com/',
+  urlContains: 'auth',
 };
