@@ -32,9 +32,23 @@ export class CreateOfferComponent implements OnInit {
     });
   }
   createOffer() {
-
+    const storageKey = 'offers';
+    const storedOffers = this.getLocalStorage(storageKey);
+    if (storedOffers) {
+      console.log(storedOffers);
+      // @ts-ignore
+      this.smeApiService.offers = storedOffers;
+    }
     this.smeApiService.offers.push(this.offerForm.value);
+    localStorage.setItem(storageKey, JSON.stringify({offers: this.smeApiService.offers}));
+    console.log(this.getLocalStorage((storageKey)));
     this.router.navigate([`/pages/offers/view-offers`]);
+  }
+  getLocalStorage(key) {
+    const offers = JSON.parse(localStorage.getItem(key)) || {offers: []};
+    // @ts-ignore
+    console.log(offers.offers);
+    return offers.offers;
   }
 
 

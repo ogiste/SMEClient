@@ -62,7 +62,22 @@ export class ViewOffersComponent implements OnInit {
   };
 
   source: LocalDataSource = new LocalDataSource();
+
   constructor(private smeApiService: SmeApiService) {
+    this.initTableData();
+  }
+
+  ngOnInit(): void {
+    const storageKey = 'offers';
+    const storedOffers = this.getLocalStorage(storageKey);
+    if (Array.isArray(storedOffers)) {
+      console.log(storedOffers);
+      this.offers = this.smeApiService.offers = storedOffers;
+      this.initTableData();
+    }
+  }
+
+  initTableData() {
     this.offers = this.smeApiService.offers.map((offer, index) => {
       if (offer.discount > 0 && offer.discount < 1) {
         offer.current_price = offer.initial_cost * (1 - offer.discount);
@@ -73,13 +88,17 @@ export class ViewOffersComponent implements OnInit {
       if (offer.discount < 0 || offer.discount > 100) {
         offer.current_price = offer.initial_cost;
       }
+      offer.expiry_date = new Date(offer.expiry_date);
       return {...offer, id: index};
     });
-    console.log(this.offers);
     this.source.load(this.offers);
   }
 
-  ngOnInit(): void {
+  getLocalStorage(key) {
+    const offers = JSON.parse(localStorage.getItem(key)) || {offers: []};
+    // @ts-ignore
+    console.log(offers.offers);
+    return offers.offers;
   }
 
   onDeleteConfirm(event): void {
