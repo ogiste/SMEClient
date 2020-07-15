@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 
 import {NgxAuthRoutingModule} from './auth.routing.module';
 import {NbAuthModule} from '@nebular/auth';
-import {NbAlertModule, NbButtonModule, NbCheckboxModule, NbIconModule, NbInputModule,} from '@nebular/theme';
+import {NbAlertModule, NbButtonModule, NbCheckboxModule, NbIconModule, NbInputModule} from '@nebular/theme';
 import {LoginComponent} from '../../components/auth/login/login.component';
 
 
