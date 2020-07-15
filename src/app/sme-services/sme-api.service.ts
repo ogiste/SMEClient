@@ -14,6 +14,9 @@ export class SmeApiService {
     }),
   };
   baseUrl = environment.api;
+  offers = [];
+  businesses = [];
+  user = [];
 
   constructor(
     private http: HttpClient,

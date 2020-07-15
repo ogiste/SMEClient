@@ -253,23 +253,33 @@ export const SME_MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Create Offer',
-        link: '/pages/offer/create',
+        link: '/pages/offers/create-offer',
       },
       {
         title: 'View Offers',
-        link: '/pages/offer/create',
+        link: '/pages/offers/view-offers',
+      },
+    ],
+  },
+  {
+    title: 'Auth',
+    icon: 'lock-outline',
+    children: [
+      {
+        title: 'Login',
+        link: '/auth/login',
       },
       {
-        title: 'Form Layouts',
-        link: '/pages/forms/business-create',
+        title: 'Register',
+        link: '/auth/register',
       },
       {
-        title: 'Buttons',
-        link: '/pages/forms/buttons',
+        title: 'Request Password',
+        link: '/auth/request-password',
       },
       {
-        title: 'Datepicker',
-        link: '/pages/forms/datepicker',
+        title: 'Reset Password',
+        link: '/auth/reset-password',
       },
     ],
   },
