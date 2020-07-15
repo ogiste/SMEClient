@@ -101,6 +101,10 @@ export const NB_CORE_PROVIDERS = [
         login: {
           // ...
           endpoint: '/auth/local',
+          redirect: {
+            success: '/pages/forms/business-create', // welcome page path
+            failure: null, // stay on the same page
+          },
           defaultErrors: ['Login/Email combination is not correct, please try again.'],
           defaultMessages: ['You have been successfully logged in.'],
         },

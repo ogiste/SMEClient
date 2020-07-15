@@ -22,6 +22,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import {environment} from '../environments/environment';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const socialLinks: NbAuthSocialLink[] = [];
 @NgModule({
@@ -42,6 +43,8 @@ const socialLinks: NbAuthSocialLink[] = [];
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,

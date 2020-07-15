@@ -41,4 +41,12 @@ export class SmeApiService {
         }),
       );
   }
+  createBusiness(businessInfo) {
+  }
+  updateBusiness(businessInfo) {
+  }
+  viewSingleBusiness(id) {
+  }
+  listBusinesses(id) {
+  }
 }

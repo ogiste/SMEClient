@@ -1,4 +1,4 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -53,7 +53,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'Form Layouts',
-        link: '/pages/forms/layouts',
+        link: '/pages/forms/business-create',
       },
       {
         title: 'Buttons',
@@ -241,6 +241,39 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Reset Password',
         link: '/auth/reset-password',
+      },
+    ],
+  },
+];
+
+export const SME_MENU_ITEMS: NbMenuItem[] = [
+  {
+    title: 'Offers',
+    icon: 'edit-2-outline',
+    children: [
+      {
+        title: 'Create Offer',
+        link: '/pages/offer/create',
+      },
+      {
+        title: 'Create Offer',
+        link: '/pages/offer/create',
+      },
+      {
+        title: 'Create Offer',
+        link: '/pages/offer/create',
+      },
+      {
+        title: 'Form Layouts',
+        link: '/pages/forms/business-create',
+      },
+      {
+        title: 'Buttons',
+        link: '/pages/forms/buttons',
+      },
+      {
+        title: 'Datepicker',
+        link: '/pages/forms/datepicker',
       },
     ],
   },
