@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-12">
+    <nb-card>
+      <nb-card-header>Add An Offer</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="offerForm" novalidate>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label" for="inputName">Offer Name</label>
+            <div class="col-sm-9">
+              <input formControlName="offer_name" fullWidth id="inputName" name="offer_name" nbInput placeholder="Offer Name" required type="text">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label" for="bizDescription">Offer Description</label>
+            <div class="col-sm-9">
+              <textarea class="col-sm-8" formControlName="offer_description" fullWidth id="bizDescription" name="offer_description" nbInput
+                        placeholder="Offer description" required></textarea>
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label" for="price">Initial Price</label>
+            <div class="col-sm-9">
+              <input formControlName="initial_cost" fullWidth id="price" name="initial_cost" nbInput placeholder="Initial Cost" required type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label" for="contact">Whatsapp Contact</label>
+            <div class="col-sm-9">
+              <input formControlName="whatsapp" fullWidth id="contact" name="whatsapp" nbInput placeholder="WhatsApp contact" required type="text">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label" for="expiry">Expiry Date</label>
+            <div class="col-sm-9">
+              <input [nbDatepicker]="datepicker" formControlName="expiry_date" fullWidth id="expiry" name="expiry_date" nbInput placeholder="Expiry Date" required type="text">
+            </div>
+            <nb-datepicker #datepicker></nb-datepicker>
+          </div>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label" for="discount">Discount</label>
+            <div class="col-sm-9">
+              <input formControlName="discount" fullWidth id="discount" name="discount" nbInput placeholder="Initial Cost" type="number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button (click)="createOffer()" nbButton status="primary">Create A New Offer</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+</div>
