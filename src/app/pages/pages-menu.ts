@@ -256,11 +256,7 @@ export const SME_MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/offer/create',
       },
       {
-        title: 'Create Offer',
-        link: '/pages/offer/create',
-      },
-      {
-        title: 'Create Offer',
+        title: 'View Offers',
         link: '/pages/offer/create',
       },
       {
