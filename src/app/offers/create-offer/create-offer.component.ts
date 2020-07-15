@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SmeApiService} from '../../sme-services/sme-api.service';
 import {FormBuilder, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'ngx-create-offer',
@@ -10,7 +11,9 @@ import {FormBuilder, Validators} from '@angular/forms';
 export class CreateOfferComponent implements OnInit {
   offer;
   offerForm;
-  constructor(private fb: FormBuilder, private smeApiService: SmeApiService) {
+  constructor(private fb: FormBuilder, private smeApiService: SmeApiService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -29,7 +32,9 @@ export class CreateOfferComponent implements OnInit {
     });
   }
   createOffer() {
+
     this.smeApiService.offers.push(this.offerForm.value);
+    this.router.navigate([`/pages/offers/view-offers`]);
   }
 
 

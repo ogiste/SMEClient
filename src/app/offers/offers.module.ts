@@ -8,6 +8,7 @@ import {ViewOffersComponent} from './view-offers/view-offers.component';
 import {SingleOfferComponent} from './single-offer/single-offer.component';
 import {NbButtonModule, NbCardModule, NbDatepickerModule, NbInputModule, NbRadioModule} from '@nebular/theme';
 import {ReactiveFormsModule} from '@angular/forms';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     NbDatepickerModule,
     NbButtonModule,
     ReactiveFormsModule,
+    Ng2SmartTableModule,
   ],
 })
 export class OffersModule { }

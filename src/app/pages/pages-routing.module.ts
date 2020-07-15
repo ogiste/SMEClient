@@ -13,6 +13,11 @@ const routes: Routes = [{
         .then(m => m.FormsModule),
     },
     {
+      path: 'tables',
+      loadChildren: () => import('./tables/tables.module')
+        .then(m => m.TablesModule),
+    },
+    {
       path: 'offers',
       loadChildren: () => import('../offers/offers.module')
         .then(m => m.OffersModule),
